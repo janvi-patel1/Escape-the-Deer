@@ -1,0 +1,806 @@
+/*
+Janvi, Tahmim, Aradhana, Samitah
+Nov 4, 2025
+Purpose: To create an escape-room style game that has 8 different puzzles, following characters escaping a campsite in a forest. User must solve puzzles to continue using clues and various materials
+*/
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+      Scanner input = new Scanner (System.in); 
+      
+    //variables
+    int choice;
+    String cont;
+    String return0="no";
+      
+    do{      
+
+    //opening screen
+        System.out.println("\n\n\t🌳    ===== THE WOODS OF WHISPERS MENU =====    🌳  \n\n");
+        System.out.println("            *                             *");
+        System.out.println("           ***             *             ***");
+        System.out.println("          *****           ***           *****");
+        System.out.println("         *******         *****         *******");
+        System.out.println("        *********       *******       *********");
+        System.out.println("       ***********     *********     ***********");
+        System.out.println("      *************   ***********   *************");
+        System.out.println("     *************** ************* ***************");
+        System.out.println("           |||            |||            |||");
+        System.out.println("           |||            |||            |||");
+        System.out.println("           |||            |||            |||");
+
+        System.out.println("      ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ");
+        System.out.println("      ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \n");
+
+        System.out.println("1. \tPlay Game\n2.\tAbout Escape Games\n3.\tQuit\n");
+        System.out.print("Enter #: ");
+        choice = input.nextInt();
+
+        while (choice!=1 && choice !=2 && choice!=3){
+        System.out.print("\nINVALID- Enter a Valid Number: ");
+        choice = input.nextInt();
+        }//end while
+
+        //if the user selects play game
+        if (choice == 1){
+        playGameIntro();
+         System.out.print ("\nEnter \"y\" to continue to the game: "); 
+        cont = input.next(); 
+        //ERROR CHECK USER INPUT 
+        while (!cont.equalsIgnoreCase("y")){
+        System.out.print ("\nERROR- Enter \"y\" to continue to the game:  "); 
+        cont= input.next(); 
+        }//end while
+  
+       puzzle1();//Aradhana
+              
+      //ASK USER IF THEY WANT TO CONTINUE
+      System.out.print ("\nEnter \"y\" to continue to next chapter: "); 
+      cont = input.next(); 
+      //ERROR CHECK ANSWER
+      while (!cont.equalsIgnoreCase("y")){
+      System.out.print ("\nERROR- Enter \"y\" to continue to next chapter:  "); 
+        cont= input.next(); 
+      }//end while
+          
+        puzzle2();//Aradhana
+              
+      //ASK USER IF THEY WANT TO CONTINUE
+      System.out.print ("\nEnter \"y\" to continue to next chapter: "); 
+      cont = input.next(); 
+      //ERROR CHECK ANSWER
+      while (!cont.equalsIgnoreCase("y")){
+      System.out.print ("\nERROR- Enter \"y\" to continue to next chapter:  "); 
+        cont= input.next(); 
+      }//end while
+          
+        puzzle3();//Samitah
+              
+      //ASK USER IF THEY WANT TO CONTINUE
+      System.out.print ("\nEnter \"y\" to continue to next chapter: "); 
+      cont = input.next(); 
+      //ERROR CHECK ANSWER
+      while (!cont.equalsIgnoreCase("y")){
+      System.out.print ("\nERROR- Enter \"y\" to continue to next chapter:  "); 
+        cont= input.next(); 
+      }//end while
+          
+        puzzle4();//Samitah
+              
+      //ASK USER IF THEY WANT TO CONTINUE
+      System.out.print ("\nEnter \"y\" to continue to next chapter: "); 
+      cont = input.next(); 
+      //ERROR CHECK ANSWER
+      while (!cont.equalsIgnoreCase("y")){
+      System.out.print ("\nERROR- Enter \"y\" to continue to next chapter:  "); 
+        cont= input.next(); 
+      }//end while
+          
+        puzzle5();//Janvi
+              
+      //ASK USER IF THEY WANT TO CONTINUE
+      System.out.print ("\nEnter \"y\" to continue to next chapter: "); 
+      cont = input.next(); 
+      //ERROR CHECK ANSWER
+      while (!cont.equalsIgnoreCase("y")){
+      System.out.print ("\nERROR- Enter \"y\" to continue to next chapter:  "); 
+        cont= input.next(); 
+      }//end while
+          
+        puzzle6();//Janvi
+              
+      //ASK USER IF THEY WANT TO CONTINUE
+      System.out.print ("\nEnter \"y\" to continue to next chapter: "); 
+      cont = input.next(); 
+      //ERROR CHECK ANSWER
+      while (!cont.equalsIgnoreCase("y")){
+      System.out.print ("\nERROR- Enter \"y\" to continue to next chapter:  "); 
+        cont= input.next(); 
+      }//end while
+          
+        puzzle7();//Tahmim 
+              
+      //ASK USER IF THEY WANT TO CONTINUE
+      System.out.print ("\nEnter \"y\" to continue to next chapter: "); 
+      cont = input.next(); 
+      //ERROR CHECK ANSWER
+      while (!cont.equalsIgnoreCase("y")){
+      System.out.print ("\nERROR- Enter \"y\" to continue to next chapter:  "); 
+        cont= input.next(); 
+      }//end while
+          
+        puzzle8();//Tahmim 
+              
+      //ASK USER IF THEY WANT TO CONTINUE
+      System.out.print ("\nEnter \"y\" to continue to move on: "); 
+      cont = input.next(); 
+      //ERROR CHECK ANSWER
+      while (!cont.equalsIgnoreCase("y")){
+      System.out.print ("\nERROR- Enter \"y\" to continue to move on:  "); 
+        cont= input.next(); 
+      }//while
+
+      conclusion();
+   System.out.print ("\nEnter \"y\" to continue back to the menu: "); 
+      cont = input.next(); 
+      //ERROR CHECK ANSWER
+      while (!cont.equalsIgnoreCase("y")){
+      System.out.print ("\nERROR- Enter \"y\" to continue back to the menu:  "); 
+        cont= input.next(); 
+        }//end while
+        }//end if  choice == 1
+        
+
+      //if the user selects about escape games
+      if (choice==2){
+
+        gameInstructions();
+           System.out.print ("\nEnter \"y\" to continue back to the menu: "); 
+      cont = input.next(); 
+      //ERROR CHECK ANSWER
+      while (!cont.equalsIgnoreCase("y")){
+      System.out.print ("\nERROR- Enter \"y\" to continue back to the menu:  "); 
+        cont= input.next(); 
+    
+      }//end while 
+        
+      }//end choice 2
+  }while (choice!=3);   //end do while for the whole program
+     System.out.print ("Good bye! Thanks for playing!"); 
+    
+    }//end main method
+
+//Method game intro 
+public static void playGameIntro(){
+  Scanner input = new Scanner (System.in);
+  String cont;
+        System.out.println("\nYou and your three friends decide to go on a camping trip towards the end of summer. \nSince all of you are broke and unemployed, \nyou choose to pick the cheapest camping site on a sketchy website called\n\"totallysafeandlegitcampsites.com\". \nI mean, how bad could it be right? You book the cabins and plan to stay there the whole long weekend. \nAs you drive up there and enter the road that leads to the cabins, you pass multiple warning signs.");
+   
+  System.out.print ("\nEnter \"y\" to continue reading: "); 
+        cont = input.next(); 
+        //ERROR CHECK USER INPUT 
+        while (!cont.equalsIgnoreCase("y")){
+        System.out.print ("\nERROR- Enter \"y\" to continue reading:  "); 
+        cont= input.next(); 
+        }
+        System.out.println("\n***Beware of the DEER***\n***ALWAYS keep campfire lit***\n***Under NO circumstances leave the cabins at night***\n***NEVER wear red***\n***Turn off car headlights IMMEDIATELY***\n***You MUST eat rabbit meat***\n***ALWAYS STICK TOGETHER***");
+
+   System.out.print ("\nEnter \"y\" to continue reading: "); 
+        cont = input.next(); 
+        //ERROR CHECK USER INPUT 
+        while (!cont.equalsIgnoreCase("y")){
+        System.out.print ("\nERROR- Enter \"y\" to continue reading:  "); 
+        cont= input.next(); 
+        } //end while
+  
+  System.out.println("\nAs you finally drive in through the campsite, the wooden gates close behind you, \nYou realize the car cant go any further, so you and your friends walk down to the cabin on foot. \nAs you enter the cabin,\nthe lights start to flicker and suddently turn off, \nthen door shuts behind you. \nThankfully everyone packed flashlights.\nYou turn on your flashlight and you find a red envelope on the ground...");
+      }//end gameintro
+
+//Method Game Instructions
+public static void gameInstructions(){
+      //general rules
+      System.out.println("\n====ABOUT ESCAPE GAMES====");
+      System.out.println("Escape games are interactive adventures where players solve puzzles and clues to escape from a locked setting.");
+      System.out.println("\n==General Rules==");
+      System.out.println("[] No use of the internet for help.");
+      System.out.println("[] You have 60 minutes to complete the challenge.");
+      System.out.println("[] Teamwork and Communication are key!");
+      System.out.println("[] Pay attention to details and any hidden clues.");
+      //game specific rules
+      System.out.println("\n==About THIS Escape Game==");
+      System.out.println("Title: The Woods of Whispers");
+      System.out.println("Goal: To escape from a mysterious forest campsite by solving puzzles to uncover clues. Survive the dark secrets of the cabins before darkness arives and danger awaits within.");
+      }//end game instructions 
+
+
+//Method puzzle 1
+public static void puzzle1(){
+      Scanner input= new Scanner (System.in);
+      //PUZZLE 1- ARADHANA 
+      //Variables 
+      String answer1;
+      String answer2; 
+      String cont; 
+      //OUTPUT PUZZLE INFO 
+      System.out.print(
+                "\n\n╔═════════════════════════════════════════════════╗\n" +
+                "║                                                 ║\n" +
+                "║                   CHAPTER 1                     ║\n" +
+                "║                  THE KEYPAD                     ║\n" +
+                "║                                                 ║\n" +
+                "╚═════════════════════════════════════════════════╝\n\n"
+      );
+
+      System.out.println ("You use your flashlights to read what is in the red \nenvelope.\nIt has a bunch of zeroes and ones.\nYou see an alphabetical pin pad on the wall that \nis faintly beeping.\n\n ");  
+      System.out.print(
+            "       \t+-------+-------+-------+\n" +
+            "       \t|   A   |   B   |   C   |\n" +
+            "       \t+-------+-------+-------+\n" +
+            "       \t|   D   |   E   |   F   |\n" +
+            "       \t+-------+-------+-------+\n" +
+            "       \t|   G   |   H   |   I   |\n" +
+            "       \t+-------+-------+-------+\n" +
+            "       \t|   J   |   K   |   L   |\n" +
+            "       \t+-------+-------+-------+\n" +
+            "       \t|   M   |   N   |   O   |\n" +
+            "       \t+-------+-------+-------+\n" +
+            "       \t|   P   |   Q   |   R   |\n" +
+            "       \t+-------+-------+-------+\n" +
+            "       \t|   S   |   T   |   U   |\n" +
+            "       \t+-------+-------+-------+\n" +
+            "       \t|   V   |   W   |   X   |\n" +
+            "       \t+-------+-------+-------+\n" +
+            "       \t|   Y   |   Z   |   *   |\n" +   
+            "       \t+-------+-------+-------+\n" +
+            "       \t|   .   | ENTER |   !   |\n" +   
+            "       \t+-------+-------+-------+\n\n\n"
+        );
+      
+      //ASK USER FOR ANSWER
+      System.out.print ("What do you enter?: "); 
+      answer1= input.next(); 
+
+      //ERROR CHECK ANSWER
+      while (!answer1.equalsIgnoreCase("LODGE")){
+        System.out.print ("\nWRONG! Try again: "); 
+          answer1= input.next(); 
+      }//end while
+
+
+      System.out.println("\nCorrect! The lights turn on! \n\nYou feel a wave of \nrelief, but it quickly dawns to you that you \nguys are still trapped at this campsite. \nThere is no way to unlock the outside doors, \nyou might as well explore? Right?...");
+  
+      }//end puzzle 1 
+
+//Method puzzle 2 
+  public static void puzzle2(){
+    Scanner input = new Scanner (System.in);
+      String answer1;
+      String answer2; 
+      String cont; 
+      //OUTPUT PUZZLE INFO 
+        System.out.print(
+                "\n\n╔═════════════════════════════════════════════════╗\n" +
+                "║                                                 ║\n" +
+                "║                   CHAPTER 2                     ║\n" +
+                "║              THE FLAME\'S DEATH                  ║\n" +
+                "║                                                 ║\n" +
+                "╚═════════════════════════════════════════════════╝\n\n"
+        );
+        System.out.print(
+        "\t                ___\n" +
+        "\t             .-'   `-.\n" +
+        "\t            /         \\\n" +
+        "\t           |           |\n" +
+        "\t          /-------------\\\n" +
+        "\t         |  /=========\\  |\n" +
+        "\t         |  |         |  |\n" +
+        "\t         |  |    ^    |  |\n" +
+        "\t         |  |   / \\   |  |\n" +
+        "\t         |  |  ( ^ )  |  |\n" +
+        "\t         |  |   \\_/   |  |\n" +
+        "\t         |  \\=========/  |\n" +
+        "\t         \\---------------/\n"
+        );
+      
+        System.out.println("\nYou hear an unlocking sound at the window...");
+        System.out.println("With claw muddy footprints and claw marks on the \nground leading up to it.");
+        System.out.println("\nYou jump out the window and see a table outside \nwith a map of the campsite and a yellow envelope");
+        System.out.println("You find a lantern that won’t stay lit.");
+        System.out.println("You must find a way to keep the lantern burning \nsteadily.");
+        System.out.println("The map has a room labeled LODGE. You decide to go \nthere next.");
+        //ASK USER IF THEY WANT TO CONTINUE READING
+        System.out.print ("\nEnter \"y\" to continue reading: "); 
+        cont = input.next(); 
+        //ERROR CHECK USER INPUT 
+        while (!cont.equalsIgnoreCase("y")){
+        System.out.print ("\nERROR- Enter \"y\" to continue reading:  "); 
+        cont= input.next(); 
+        }//end while
+        System.out.println("\nAs you enter the lodge, the faint moonlight reveals \na trapdoor under a rug.");
+        System.out.println("You climb in and see a cozy room with a fireplace \nand furniture.");
+        System.out.println("Be careful, because looks may deceive you.");
+        System.out.println("The lantern goes out and you hear thumping on \nthe trapdoor.");
+        System.out.println("The wails are not distant anymore, you can hear \na beast outside.");
+        //ASK USER IF THEY WANT TO CONTINUE READING
+        System.out.print ("\nEnter \"y\" to continue reading: "); 
+        cont = input.next();
+        //ERROR CHECK USER INPUT
+        while (!cont.equalsIgnoreCase("y")){
+        System.out.print ("\nERROR- Enter \"y\" to continue reading:  "); 
+        cont= input.next(); 
+        }//end while
+      
+        System.out.println("\nYou need to relight the lantern NOW, before the beast \nbreaks through the trapdoor.");
+        System.out.println("You LOOK around the room. Where can you find fuel?");
+        //ASK USER FOR ANSWER
+        System.out.print ("\n\nEnter the code to relight the flame: ");
+        answer2= input.next(); 
+
+        //ERROR CHECK ANSWER
+        while (!answer2.equalsIgnoreCase("LAMP")){
+        System.out.print ("\nWRONG! Try again: "); 
+          answer2= input.next(); 
+        }//end while
+
+        System.out.print ("\nCorrect! Phew..."); 
+        //END PUZZLE TWO
+  
+        }//End method two 
+
+//Method puzzle 3 
+public static void puzzle3(){
+     Scanner input = new Scanner (System.in);  
+
+      //prints out what happens next 
+      System.out.print(
+                     "\n\n╔═════════════════════════════════════════════════╗\n" +
+                     "║                                                 ║\n" +
+                     "║                   CHAPTER 3                     ║\n" +
+                     "║                MYSTERIOUS CHEST                 ║\n" +
+                     "║                                                 ║\n" +
+                     "╚═════════════════════════════════════════════════╝\n\n"
+        );
+      
+      System.out.println("You and your friends get a wave of relief once the\nwailing stops. You try to open the trap door that\nyou came in through but it's jammed shut. As everyone\ntries to find a way out someone slips on the rug\nand reveals a chest drawing on the floor with an\narrow forward...");
+        
+      System.out.println("\nYou follow that arrow and find a dusty old black chest\nhidden in a closet, with a 3 digit lock on it.\nYou see 3 symbols printed on it\n\nAn Orange Circle, Red Triangle, Yellow Square...\n");  
+      System.out.println(".**.   .*.   |***|         ");
+      System.out.println(".  .  .   .  |   |");
+      System.out.println(" **   *****  ***** ");
+
+      System.out.println("\n--Rainbows are scrambled: Sides unknown--\n**Rainbows arranged: Sides revealed**"); 
+      
+
+      //Varaibles for puzzle 2 & 3
+      int num;
+      String continue1,door,continue2, cont; 
+
+      
+      //Puzzle 3 starts
+      System.out.println("\n");
+      System.out.print("""
+        . ..... .                 
+      .   .....   .
+      .  .     .  .
+      .  .     .  .                     
+      .  .     .  . 
+      .............
+      .           .
+      .-----------. 
+      .   LOCK    . 
+      .-----------.
+      .           .                       
+      . ...........                    
+                           """); 
+  System.out.print("ENTER THE CODE: ");
+      num= input.nextInt(); 
+
+      while(num!=304){
+        System.out.print ("WRONG! Try again: "); 
+              num= input.nextInt(); 
+      }//end while
+      
+      System.out.println("""
+        . ..... .                 
+      .   .....   .
+      .  .     .  .
+      ....     .  .                     
+               .  . 
+      .............
+      .           .
+      .-----------. 
+      .   OPEN    . 
+      .-----------.
+      .           .                       
+      . ...........                    
+                         
+     """); 
+
+      System.out.println("CORRECT! The chest has opened"); 
+
+
+      }//end puzzle 3
+  
+public static void puzzle4(){
+    Scanner input = new Scanner (System.in);
+        //Varaibles for puzzle 2 & 3
+      int num;
+      String continue1,door,continue2, cont; 
+                  System.out.print(
+                "\n\n╔═════════════════════════════════════════════════╗\n" +
+                "║                                                 ║\n" +
+                "║                   CHAPTER 4                     ║\n" +
+                "║                 TUNNEL OF DOOM                  ║\n" +
+                "║                                                 ║\n" +
+                "╚═════════════════════════════════════════════════╝\n\n"
+        );
+
+      //puzzle 4 starts
+      System.out.println("""
+Once you open the chest you find..
+- Rabbit meat
+- Bandages 
+- A Spear 
+- Compass
+- A blueprint of a tunnel..        
+                         """); 
+
+      //Story outputted 
+      System.out.print ("Enter \"y\" to continue reading: "); 
+        cont = input.next(); 
+        //ERROR CHECK USER INPUT 
+        while (!cont.equalsIgnoreCase("y")){
+        System.out.print ("\nERROR- Enter \"y\" to continue reading:  "); 
+        cont= input.next(); 
+        }//end while
+
+  System.out.println("\nYou look up from the chest in the closet and see a\ncarved door on the wall. Once you open it you see a\nlong tunnel facing north. You and your friends decide\nto go through it. You see a bunch of closed doors with\nthe letters of the alphabet.\n\nYou decide it's best not to\nopen them and follow the direction of the compass.\nAfter walking for a while your compass starts beeping.\nYou see that it started beeping once you reached door “R”.");  
+
+  System.out.print ("\nEnter \"y\" to continue reading: "); 
+        cont = input.next(); 
+        //ERROR CHECK USER INPUT 
+        while (!cont.equalsIgnoreCase("y")){
+        System.out.print ("\nERROR- Enter \"y\" to continue reading:  "); 
+        cont= input.next(); 
+        }//end while
+
+System.out.println("\nYou see a keypad attached to the door that looks like this...");     
+
+
+      System.out.print("""
+        
+  _______________________________
+ |                               |
+ |  __  __  __  __               |
+ |_______________________________|
+ |       |       |       |       |   
+ |   1   |   2   |   3   |   4   | 
+ |_______|_______|_______|_______|
+ |       |       |       |       |
+ |   D   |   E   |   F   |   G   |
+ |_______|_______|_______|_______|
+ |       |       |       |       |
+ |   H   |   I   |   J   |   L   |
+ |_______|_______|_______|_______|
+ |       |       |       |       |
+ |   LX  |   M   |   N   |   RX  |
+ |_______|_______|_______|_______|  
+
+(If there is an x that means the letter doesn/'t work)             """);
+  System.out.print("\nENTER THE CODE TO OPEN THE DOOR: ");
+door=input.next(); 
+
+while(!door.equalsIgnoreCase("DEE4")){
+  System.out.print("WRONG!! Try again: ");
+  door=input.next();
+}//end while
+
+ System.out.println("Door is unlocked!!") ;  
+  }//end puzzle 4
+    //PUZZLE 5 - JANVI
+  public static void puzzle5(){
+    Scanner input = new Scanner (System.in);
+    //variables
+    String decodeDeer;
+    int counter0=0;
+//intro story to puzzle 5
+          System.out.print(
+                "\n\n╔═════════════════════════════════════════════════╗\n" +
+                "║                                                 ║\n" +
+                "║                   CHAPTER 5                     ║\n" +
+                "║                THE MISSING KIDS                 ║\n" +
+                "║                                                 ║\n" +
+                "╚═════════════════════════════════════════════════╝\n\n"
+      );
+System.out.println("""
+You step into the cabin, the air cold and still. Four missing kids' posters 
+lie across a dusty table. Red markings circle a deer drawn on one page.
+The walls are covered in deep scratches, as if something tried to escape. 
+A broken chair rests in the corner, knocked over in a hurry.
+Some posters have words underlined again and again, others are torn at the edges.
+The deer symbol appears more than once, always marked in red.
+Some letters stand out when you look closer. A hidden message slowly becomes clear.
+""");
+
+    System.out.print("Can you uncover the hidden message? Enter it here: ");
+      decodeDeer = input.next();
+    counter0++;
+    //error check code
+      while (!decodeDeer.equalsIgnoreCase("decodethedeer")) {
+      System.out.println("Attempts used: " + counter0);
+    System.out.print("WRONG! Try Again: ");
+    decodeDeer = input.next();
+        counter0++;     
+}//end while
+System.out.println("Well Done! You proceed out of the cabin in search of the deer...");
+  }//end puzzle5
+
+  //PUZZLE 6 - JANVI
+  public static void puzzle6(){
+    Scanner input = new Scanner (System.in);
+    //variables
+    int counter=0;
+    final String CORRECTCODE = "3326338433337";
+//intro story to puzzle 6
+              System.out.print(
+                "\n\n╔═════════════════════════════════════════════════╗\n" +
+                "║                                                 ║\n" +
+                "║                   CHAPTER 6                     ║\n" +
+                "║                 DECODE OR DIE                   ║\n" +
+                "║                                                 ║\n" +
+                "╚═════════════════════════════════════════════════╝\n\n"
+      );
+ System.out.println("""
+You notice a small keypad hidden on the back of the deer carving.
+It looks ancient, with worn-out numbers faintly visible under the dust.
+But wait, the password you found earlier was alphabetic… Oh no! Now what?
+
+You pause, taking a deep breath, realizing there must be a clever way
+to use the letters you uncovered to unlock this mysterious keypad.
+Every symbol and mark you saw earlier might be part of the solution.
+""");
+
+    //keypad
+        System.out.println(" 1      2       3");
+        System.out.println("       ABC     DEF");
+        System.out.println(" 4      5       6");
+        System.out.println("GHI    JKL     MNO");
+        System.out.println(" 7      8       9");
+        System.out.println("PQRS   TUV     WXYZ");
+        System.out.println("*       0       #");
+
+    System.out.print("\nEnter Passcode here: ");
+      String decodePasscode = input.next();
+      counter++;
+    //error check code
+    while (!decodePasscode.equals(CORRECTCODE)){
+      System.out.print("\nWRONG! Try Again: ");
+        decodePasscode = input.next();
+      counter++;
+      System.out.println("Attempts used: " + counter);
+
+    }
+//ending message to say u have done the puzzle
+      System.out.println("Beep beep… Neeeuuuu!");
+      System.out.println("The keypad flashes and clicks.");
+      System.out.println("The deer shudders, then goes still.");
+      System.out.println("CONGRATS! You’ve decoded it. The path forward is clear.");
+    
+  }//end puzzle6
+
+  //PUZZLE 7
+public static void puzzle7(){
+         Scanner input  = new Scanner(System.in);
+
+      int red,door;
+      String green,blue, cont;
+
+            System.out.print(
+                "\n\n╔═════════════════════════════════════════════════╗\n" +
+                "║                                                 ║\n" +
+                "║                   CHAPTER 7                     ║\n" +
+                "║                  COLOUR CRAZY                   ║\n" +
+                "║                                                 ║\n" +
+                "╚═════════════════════════════════════════════════╝\n\n"
+      );
+
+      System.out.println(""" 
+You open your eyes to see 4 massive doors—red, blue, green, and yellow,
+each with a keypad and padlock. A multicoloured note lies at your feet, 
+giving clues for each door.
+""");
+
+      //Puzzle 1:
+      
+      //Door 1
+      System.out.println("""
+You open the envelope and see a list of objects: Red rabbit eyes-15, deer-86, 
+wolf-42, acorn-100, pebble-52.
+""");
+      
+      System.out.print("""
+Match the first object to the correct door and enter its number:
+""");
+  System.out.print("\nEnter the number here: ");
+      red=input.nextInt();
+      while (red!=15){
+        System.out.print("\nERROR- Try again:  ");
+      red=input.nextInt();
+      }//end while
+ 
+      //Door 2
+      System.out.println("""
+\nGreat! You read the second line: click your flashlight 5 times until it beeps, 
+then enter the number for the matching door:
+""");
+  System.out.print("Enter the number: ");
+    door=input.nextInt();
+
+      while (door!=5){
+      System.out.print("\nERROR- Try again: ");
+    door=input.nextInt();
+      }//end while
+
+      //Door 3
+      System.out.println("""
+\nWell Done! You continue reading the letter and reach the third line, which shows jumbled 
+letters: 43FL. Rearrange them into a word that makes sense and enter the code 
+for the correct door
+""");
+  System.out.print("Enter the code: ");
+      green=input.next();
+
+      while (!green.equalsIgnoreCase("L34F")){
+    System.out.print("\nERROR- Try again: ");
+      green=input.next();
+      }//end while
+
+      //Door 4
+       System.out.println("""
+\nWonderful! You read the last line of the letter, telling you to enter the sky colour into 
+the pinpad
+ """);
+  System.out.print("Enter the letter: ");
+      blue=input.next();
+
+      while(!blue.equalsIgnoreCase("BE")){
+         System.out.print("\nERROR- Try again: ");
+      blue=input.next();
+      }//end while
+  
+      //Finishing up puzzle 7
+      System.out.println("""
+        \nFinally! You finish inserting the last code into the pinpad and look
+        around to see 4 huge padlocks falling off from each of the doors. 
+        The loud crash from them falling onto the floor floods your ears.
+        The huge doors also slam onto the floor immediately after 
+        and you realize you are free!(For now...)""");
+        //End of puzzle 1
+  
+}//end puzzle7
+
+public static void puzzle8(){
+  Scanner input = new Scanner (System.in);
+        int red,door;
+      String green,blue;
+        //Puzzle 2
+      String plate, cont;
+      int headlight,wheel;
+      char F;
+
+            System.out.print(
+                "\n\n╔═════════════════════════════════════════════════╗\n" +
+                "║                                                 ║\n" +
+                "║                   CHAPTER 8                     ║\n" +
+                "║                  VROOM VROOM                    ║\n" +
+                "║                                                 ║\n" +
+                "╚═════════════════════════════════════════════════╝\n\n"
+      );
+      System.out.println("""
+You dash into the dark forest, hearing wolves howling. Up ahead, an empty 
+road leads to a single bright pink car. Desperate, you sprint toward it, 
+hoping it can help you escape.
+""");
+
+      System.out.println("""
+      As you approach it, you realize that the car is on and the doors are unlocked 
+      so you open the car door to the driver's seat. You quickly spot a touchpad inside
+      with a homescreen. Although the homescreen is locked, there is a note covering it. 
+      The note attached to it tells you to enter the correct password to access the keys.""");
+
+   System.out.print ("\nEnter \"y\" to continue reading: "); 
+        cont = input.next(); 
+        //ERROR CHECK USER INPUT 
+        while (!cont.equalsIgnoreCase("y")){
+        System.out.print ("\nERROR- Enter \"y\" to continue reading:  "); 
+        cont= input.next(); 
+        }//end while
+  
+      //Value 1
+      System.out.println("""
+\nAfter reading the note, you check the car and see a new license plate on the 
+back. Enter it into the touchscreen
+""");
+  System.out.print("Enter value: ");
+      plate=input.next();
+
+      while (!plate.equalsIgnoreCase("C4R")){
+        System.out.print("ERROR- Try Again: ");
+      plate=input.next();
+      }//end while
+
+      //Value 2
+       System.out.println("""
+\nWell done! You inspect the car’s exterior and notice dimmed headlights with numbers engraved 
+around the right one. Enter this number into the touchscreen
+""");
+  System.out.print("Enter the number: ");
+      headlight=input.nextInt();
+
+      while (headlight!=1028){
+         System.out.print("ERROR- Try Again: ");
+      headlight=input.nextInt();
+      }//end while
+
+      //Value 3
+      System.out.println("""
+\nGreat! You check the car’s interior and sit in the driver’s seat. The gas tank shows a 
+high level with an arrow—enter this value into the touchscreen
+ """);
+  System.out.print("Enter the value: ");
+      headlight=input.next().charAt(0);
+
+      while (headlight!='F' && headlight!='f'){
+       System.out.print("ERROR- Try Again: ");
+     headlight=input.next().charAt(0);
+      }//end while
+
+      //Value 4
+      System.out.println("""
+\nAlmost there! You notice a large number carved into the steering wheel. Enter this value 
+into the touchscreen
+""");
+  System.out.print("Enter the value: ");
+      wheel=input.nextInt();
+
+      while (wheel!=10){
+         System.out.print("ERROR- Try Again: ");
+      wheel=input.nextInt();
+      }//end while
+      System.out.println("""
+\nAfter inserting that last value into the touchscreen of the car, you hear a heavy object fall into the front 
+passanger seat. You look over and see exactly what you were hoping for, car keys! You feel the weight of 
+stress leave your chest but you waste no time to leave. You grab the keys and turn on the car and drive as 
+fast as you can. You don't look back and you keep driving at full speed without any hesitation. """);
+      //End of puzzle 2
+
+}//end puzzle 8
+
+  public static void conclusion (){
+        System.out.println("""
+╔═════════════════════════════════════════════════╗
+║                                                 ║
+║                   CONCLUSION                    ║
+║                                                 ║
+╚═════════════════════════════════════════════════╝
+""");
+System.out.println("""
+You and your friends dinally escape the cursed campsite,
+breathing in the fresh night air as the forest fades behind you.
+The towering trees and eerie whispers are now just a memory,
+but the lessons remain.
+                
+Through teamwork, clever thinking, and courage, 
+you solved every puzzle and unlocked every secret. 
+he deer, the letters, the cabin, and even the mysterious car
+have all played their part in guiding you to freedom.
+
+You glance at your friends and realize
+that this adventure has changed you all forever.
+Though the woods of whispers may haunt your dreams,
+you survived, and together, nothing seems impossible.
+
+Congratulations! You’ve completed "The Woods of Whispers".
+May your future adventures be just as thrilling… but hopefully less haunted!""");
+  }//end puzzle8
+}//end program
